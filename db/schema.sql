@@ -8,7 +8,11 @@ CREATE TABLE planets (
   planetname TEXT NOT NULL,
   description TEXT,
   discovery_order INTEGER,
+  date_of_discovery DATE,
   is_current_planet BOOLEAN DEFAULT 1,
-  CONSTRAINT unique_name UNIQUE (name),
+  diameter_km REAL,
+  mass_kg REAL,
+  avg_temperature_celsius REAL,
+  CONSTRAINT unique_name UNIQUE (planetname),
   CONSTRAINT positive_discovery_order CHECK (discovery_order >= 0)
 );
