@@ -24,7 +24,7 @@ INSERT INTO planets (id, planetname, description, discovery_order, date_of_disco
 (19, 'Enceladus', 'A moon of Saturn with geysers of water vapor erupting from its surface.', 19, '2023-07-01', 1, 504, 1.08e20, -201),
 (20, 'Triton', 'Neptunes largest moon, with a retrograde orbit and geysers of nitrogen.', 20, '2023-08-01', 1, 2707, 2.14e22, -235),
 (21, 'Charon', 'Plutos largest moon, forming a binary system with Pluto.', 21, '2023-09-01', 1, 1208, 1.59e21, -220),
-(22, 'Eris Moon', 'Dwarf planet Eris has a moon named Dysnomia.', 22, '2023-10-01', 1, 0, 0, 0),
+
 
 
 
