@@ -8,7 +8,7 @@ app.use(express.json());
 
 // root
 app.get("/", (request, response) => {
-    response.send("Hello World!");
+    response.send("Welcome to the Back-End of the Cosmos App!");
 });
 
 app.use("/planets", planets);
