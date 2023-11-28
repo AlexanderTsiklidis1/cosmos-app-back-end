@@ -3,6 +3,8 @@ CREATE DATABASE cosmos_db_dev;
 
 \c cosmos_db_dev;
 
+-- schema.sql
+
 CREATE TABLE planets (
   id INTEGER PRIMARY KEY,
   planetname TEXT NOT NULL,
@@ -13,6 +15,7 @@ CREATE TABLE planets (
   diameter_km REAL,
   mass_kg REAL,
   avg_temperature_celsius REAL,
+  planet_picture TEXT, 
   CONSTRAINT unique_name UNIQUE (planetname),
   CONSTRAINT positive_discovery_order CHECK (discovery_order >= 0)
 );
