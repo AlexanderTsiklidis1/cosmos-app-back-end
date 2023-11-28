@@ -9,7 +9,14 @@ const getAllPlanets = async () => {
     }
 };
 
-
+const getOnePlanet = async (id) => {
+    try {
+        const onePlanet = await db.one("SELECT * FROM planets WHERE id=$1", id);
+        return onePlanet;
+    } catch (error) {
+        return error;
+    }
+};
 
 const createPlanet = async (planet) => {
     try {
@@ -28,15 +35,6 @@ const createPlanet = async (planet) => {
             ]
         );
         return createdPlanet;
-    } catch (error) {
-        return error;
-    }
-};
-
-const getOnePlanet = async (id) => {
-    try {
-        const onePlanet = await db.one("SELECT * FROM planets WHERE id=$1", id);
-        return onePlanet;
     } catch (error) {
         return error;
     }
