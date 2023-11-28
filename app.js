@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-
+const planets = require('./controllers/planetsController.js');
 
 app.use(cors());
 app.use(express.json());
@@ -11,7 +11,7 @@ app.get("/", (request, response) => {
     response.send("Hello World!");
 });
 
-
+app.use("/planets", planets);
 
 // 404 Page not found
 app.get("*", (req, res) => {
