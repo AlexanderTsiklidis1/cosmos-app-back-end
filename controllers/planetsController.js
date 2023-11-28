@@ -10,16 +10,19 @@ const {
 const planets = express.Router();
 
 planets.get("/", async (req, res) => {
-    try {
-        const allPlanets = await getAllPlanets();
-        res.status(200).json({ success: true, data: { payload: allPlanets } });
-    } catch (error) {
-        res.status(500).json({ success: false, data: { error: "Server Error - we didn't do it!" } });
+    
+    const allPLanets = await getAllPlanets();
+    if (allPLanets[0]) {
+        res.status(200)
+            .json({ success: true, data: { payload: allPosts } });
+    } else {
+        res.status(500)
+        .json({ success: false, data: { error: "Server Error - we didn't do it!" } });
     }
 });
 
 planets.get("/:id", async (req, res) => {
-    try {
+   
         const { id } = req.params;
         const onePlanet = await getOnePlanet(id);
         if (onePlanet) {
@@ -27,9 +30,6 @@ planets.get("/:id", async (req, res) => {
         } else {
             res.status(404).json({ error: "Not found!" });
         }
-    } catch (error) {
-        res.status(500).json({ success: false, data: { error: "Server Error - we didn't do it!" } });
-    }
 });
 
 planets.post("/", async (req, res) => {

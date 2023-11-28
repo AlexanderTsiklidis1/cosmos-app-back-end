@@ -1,8 +1,6 @@
 \c cosmos_db_dev;
 
--- seed.sql
 
--- seed.sql
 
 INSERT INTO planets (id, planetname, description, date_of_discovery, is_current_planet, diameter_km, mass_kg, avg_temperature_celsius, planet_picture) VALUES
 (1, 'Mercury', 'The smallest planet in our solar system and the closest to the Sun.', '0000-01-01', true, 4879, 3.3e23, 167, 'https://example.com/mercury.jpg'),
@@ -26,7 +24,7 @@ INSERT INTO planets (id, planetname, description, date_of_discovery, is_current_
 (19, 'Enceladus', 'A moon of Saturn with geysers of water vapor erupting from its surface.', '1789-08-28', true, 504, 1.08e20, -201, 'https://example.com/enceladus.jpg'),
 (20, 'Triton', 'Neptunes largest moon, with a retrograde orbit and geysers of nitrogen.', '1846-10-10', true, 2707, 2.14e22, -235, 'https://example.com/triton.jpg'),
 (21, 'Charon', 'Plutos largest moon, forming a binary system with Pluto.', '1978-06-22', true, 1208, 1.59e21, -220, 'https://example.com/charon.jpg'),
-(22, 'Eris Moon', 'Dwarf planet Eris has a moon named Dysnomia.', '2005-09-10', true, 0, 0, 0, 'https://example.com/eris_moon.jpg'), 
+(22, 'Eris Moon', 'Dwarf planet Eris has a moon named Dysnomia.', '2005-09-10', true, 0, 0, 0, 'https://example.com/eris_moon.jpg')
 
 
 
