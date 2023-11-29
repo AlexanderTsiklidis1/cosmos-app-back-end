@@ -56,22 +56,17 @@ planets.delete("/:id", async (req, res) => {
     }
 });
 
-planets.put("/:id", async (req, res) => {
-    try {
-        const { id } = req.params;
-        const updatedPlanet = await updatePlanet(id, req.body);
+planets.put("/:id", async(req, res) => {
+    const { id } = req.params;
+    const updatedPlanet = await updatePlanet(id, req.body);
+    if(updatedPlanet.id) {
+        res.status(200).json(updatedPlanet);
+    } else (
+        res.status(404).json("no planet found with that id")
+    )
+})
 
-        // Check if updatedPlanet exists and is not an error object
-        if (updatedPlanet && !updatedPlanet.hasOwnProperty("error")) {
-            res.status(200).json(updatedPlanet);
-        } else {
-            // If the planet is not found or an error occurred during the update
-            res.status(404).json({ success: false, data: { error: "Planet not found" } });
-        }
-    } catch (error) {
-        res.status(500).json({ success: false, data: { error: "Server Error - we didn't do it!" } });
-    }
-});
+
 
 
 module.exports = planets;
