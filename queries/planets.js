@@ -21,17 +21,15 @@ const getOnePlanet = async (id) => {
 const createPlanet = async (planet) => {
     try {
         const createdPlanet = await db.one(
-            "INSERT INTO planets (id, planetname, description, discovery_order, date_of_discovery, is_current_planet, diameter_km, mass_kg, avg_temperature_celsius) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
+            "INSERT INTO planets (planetname, description, is_current_planet, diameter_km, mass_kg, avg_temperature_celsius, planet_picture) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
             [
-                planet.id,
                 planet.planetname,
                 planet.description,
-                planet.discovery_order,
-                planet.date_of_discovery,
                 planet.is_current_planet,
                 planet.diameter_km,
                 planet.mass_kg,
                 planet.avg_temperature_celsius,
+                planet.planet_picture,
             ]
         );
         return createdPlanet;
@@ -39,6 +37,7 @@ const createPlanet = async (planet) => {
         return error;
     }
 };
+
 
 const deletePlanet = async (id) => {
     try {
@@ -54,36 +53,16 @@ const deletePlanet = async (id) => {
 
 const updatePlanet = async (id, planet) => {
     try {
-        const {
-            planetname,
-            description,
-            discovery_order,
-            date_of_discovery,
-            is_current_planet,
-            diameter_km,
-            mass_kg,
-            avg_temperature_celsius,
-        } = planet;
-
+        const {planetname, description, is_current_planet, diameter_km, mass_kg, avg_temperature_celcius, planet_picture} = planet
         const updatedPlanet = await db.one(
-            "UPDATE planets SET planetname=$1, description=$2, discovery_order=$3, date_of_discovery=$4, is_current_planet=$5, diameter_km=$6, mass_kg=$7, avg_temperature_celsius=$8 WHERE id=$9 RETURNING *",
-            [
-                planetname,
-                description,
-                discovery_order,
-                date_of_discovery,
-                is_current_planet,
-                diameter_km,
-                mass_kg,
-                avg_temperature_celsius,
-                id,
-            ]
+            "UPDATE planets SET planetname=$1, description=$2, is_current_planet=$3, diameter_km=$4, mass_kg=$5, avg_temperature_celcius=$6, planet_picture=$7 WHERE id=$8 RETURNING *"
+            [planetname, description, is_current_planet, diameter_km, mass_kg, avg_temperature_celcius, planet_picture, id]
         );
-        return updatedPlanet;
-    } catch (err) {
-        return err;
+        return updatedPlanet
+    }catch(err) {
+        return err
     }
-};
+}
 
 module.exports = {
     getAllPlanets,

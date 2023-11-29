@@ -6,7 +6,7 @@ CREATE DATABASE cosmos_db_dev;
 -- schema.sql
 
 CREATE TABLE planets (
-  id INTEGER PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   planetname TEXT NOT NULL,
   description TEXT,
   is_current_planet BOOLEAN DEFAULT TRUE,

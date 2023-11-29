@@ -37,6 +37,7 @@ planets.post("/", async (req, res) => {
         const createdPlanet = await createPlanet(req.body);
         res.json(createdPlanet);
     } catch (error) {
+        console.error("Error creating planet:", error);
         res.status(400).json({ error: "Error creating planet" });
     }
 });
@@ -59,14 +60,18 @@ planets.put("/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const updatedPlanet = await updatePlanet(id, req.body);
-        if (updatedPlanet.id) {
+
+        // Check if updatedPlanet exists and is not an error object
+        if (updatedPlanet && !updatedPlanet.hasOwnProperty("error")) {
             res.status(200).json(updatedPlanet);
         } else {
+            // If the planet is not found or an error occurred during the update
             res.status(404).json({ success: false, data: { error: "Planet not found" } });
         }
     } catch (error) {
         res.status(500).json({ success: false, data: { error: "Server Error - we didn't do it!" } });
     }
 });
+
 
 module.exports = planets;
