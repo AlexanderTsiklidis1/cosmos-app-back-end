@@ -1,5 +1,5 @@
-const express = require("express");
 const cors = require("cors");
+const express = require("express");
 const app = express();
 const planets = require('./controllers/planetsController.js');
 
@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // root
-app.get("/", (request, response) => {
+app.get("/", (req, res) => {
     response.send("Welcome to the Back-End of the Cosmos App!");
 });
 

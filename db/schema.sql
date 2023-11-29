@@ -9,7 +9,6 @@ CREATE TABLE planets (
   id INTEGER PRIMARY KEY,
   planetname TEXT NOT NULL,
   description TEXT,
-  date_of_discovery DATE,
   is_current_planet BOOLEAN DEFAULT TRUE,
   diameter_km REAL,
   mass_kg REAL,

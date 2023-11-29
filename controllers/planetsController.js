@@ -11,10 +11,10 @@ const planets = express.Router();
 
 planets.get("/", async (req, res) => {
     
-    const allPLanets = await getAllPlanets();
-    if (allPLanets[0]) {
+    const allPlanets = await getAllPlanets();
+    if (allPlanets[0]) {
         res.status(200)
-            .json({ success: true, data: { payload: allPosts } });
+            .json({ success: true, data: { payload: allPlanets } });
     } else {
         res.status(500)
         .json({ success: false, data: { error: "Server Error - we didn't do it!" } });
