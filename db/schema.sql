@@ -3,7 +3,7 @@ CREATE DATABASE cosmos_db_dev;
 
 \c cosmos_db_dev;
 
--- schema.sql
+
 
 CREATE TABLE planets (
   id SERIAL PRIMARY KEY,
