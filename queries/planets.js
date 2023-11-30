@@ -56,7 +56,7 @@ const updatePlanet = async (id, planet) => {
         const {planetname, description, is_current_planet, diameter_km, mass_kg, avg_temperature_celcius, planet_picture} = planet
         const updatedPlanet = await db.one(
             "UPDATE planets SET planetname=$1, description=$2, is_current_planet=$3, diameter_km=$4, mass_kg=$5, avg_temperature_celcius=$6, planet_picture=$7 WHERE id=$8 RETURNING *"
-            [planetname, description, is_current_planet, diameter_km, mass_kg, avg_temperature_celcius, planet_picture]
+            [planetname, description, is_current_planet, diameter_km, mass_kg, avg_temperature_celcius, planet_picture, id]
         );
         return updatedPlanet
     }catch(err) {
