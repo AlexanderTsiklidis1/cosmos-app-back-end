@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // root
-app.get("/", (req, res) => {
+app.get("/", (req, response) => {
     response.send("Welcome to the Back-End of the Cosmos App!");
 });
 
